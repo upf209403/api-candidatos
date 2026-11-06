@@ -1,13 +1,18 @@
-import express from "express";
-import { rota } from "./routes/rotas";
+import mongoose from "mongoose";
+import {app} from "./app"
+import { conectarBanco } from "./configurations/banco";
 
-const app = express()
-const porta = 3000
+async function iniciarServidor() {
+    await conectarBanco();
+    app.listen(3000, ()=>{
+        console.log("iniciando o servidor em http://localhost:3000")
+    })
+}
 
-app.use(express.json())
-
-app.use(rota)
-
-app.listen(porta, () => {
-    console.log("Funcionando na porta", porta)
+iniciarServidor().catch(async (erro)=>{
+    console.error("um poco de droga e um pouco de salada", erro)
+    await mongoose.disconnect()
+    process.exitCode = 1
 })
+
+
