@@ -1,0 +1,26 @@
+{
+  "name": "projeto_urna",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/servidor.ts",
+    "start": "node dist/servidor.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.11.3",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/swagger-ui-express": "^4.1.8",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
