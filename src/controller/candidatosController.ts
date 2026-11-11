@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import { Candidato } from "../types/Candidato";
-import { buscarPorCandidatoPorId, buscarTodosCandidatos, salvarCandidato, deletarCandidato, atualizarCandidato } from "../services/candidatoService";
+import { buscarCandidatoPorId, buscarTodosCandidatos, salvarCandidato, deletarCandidato, atualizarCandidato } from "../services/candidatoService";
 
 
 export function listarTodosCandidatos(req: Request, res: Response){
@@ -11,7 +10,7 @@ export function listarTodosCandidatos(req: Request, res: Response){
 
 export async function listarCandidatoPorNumero(req: Request<{id : string}>, res: Response){
 
-    const candidato = await buscarPorCandidatoPorId(req.params.id)
+    const candidato = await buscarCandidatoPorId(req.params.id)
 
     if(candidato){
         return res.status(200).json(candidato)

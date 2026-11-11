@@ -10,7 +10,7 @@ async function iniciarServidor() {
 }
 
 iniciarServidor().catch(async (erro)=>{
-    console.error("um poco de droga e um pouco de salada", erro)
+    console.error("Erro", erro)
     await mongoose.disconnect()
     process.exitCode = 1
 })
